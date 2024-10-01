@@ -19,15 +19,15 @@
   <meta name="author" content="Ashen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3.1 基本形式  要熟练使用线性代数的方法简化表示复杂问题。 线性模型是非线性模型的基础，许多复杂模型都建立在线性模型的概念之上。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，较为简单。后续小节将讨论分类问题。 回归问题的目标是预测一个连续值。 若将无序属性连续化，可能不恰当地引入序关系，通常可以将无序属性拆分成多个二进制属性。 模型最优的定义是使损失函数">
+    <meta name="description" content="3.1 基本形式  要熟练使用线性代数的方法简化问题表示，尤其是在高维数据和复杂模型中。 线性模型是非线性模型的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，重点在于通过模型预测一个连续值。 若将无序属性（如分类变量）连续化，可能不恰当地引入序关系，因此通常将无序属性拆分成多个二进制属性进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第3章 线性模型">
 <meta property="og:url" content="https://ashen.pages.dev/linear_model/index.html">
 <meta property="og:site_name" content="AshenWitch">
-<meta property="og:description" content="3.1 基本形式  要熟练使用线性代数的方法简化表示复杂问题。 线性模型是非线性模型的基础，许多复杂模型都建立在线性模型的概念之上。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，较为简单。后续小节将讨论分类问题。 回归问题的目标是预测一个连续值。 若将无序属性连续化，可能不恰当地引入序关系，通常可以将无序属性拆分成多个二进制属性。 模型最优的定义是使损失函数">
+<meta property="og:description" content="3.1 基本形式  要熟练使用线性代数的方法简化问题表示，尤其是在高维数据和复杂模型中。 线性模型是非线性模型的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，重点在于通过模型预测一个连续值。 若将无序属性（如分类变量）连续化，可能不恰当地引入序关系，因此通常将无序属性拆分成多个二进制属性进">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-01T03:35:29.482Z">
+<meta property="article:modified_time" content="2024-10-01T08:13:02.267Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          10 分钟
+          13 分钟
         
       </span>
     
@@ -278,57 +278,76 @@
                 <span id="more"></span>
 <h3 id="基本形式">3.1 基本形式</h3>
 <ol type="1">
-<li>要熟练使用<strong>线性代数</strong>的方法简化表示复杂问题。</li>
-<li><strong>线性模型</strong>是<strong>非线性模型</strong>的基础，许多复杂模型都建立在线性模型的概念之上。</li>
+<li>要熟练使用<strong>线性代数</strong>的方法简化问题表示，尤其是在高维数据和复杂模型中。</li>
+<li><strong>线性模型</strong>是<strong>非线性模型</strong>的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。</li>
 </ol>
 <h3 id="线性回归">3.2 线性回归</h3>
 <ol type="1">
-<li>本节讨论的是<strong>回归问题</strong>，最早由<strong>高斯</strong>提出，较为简单。后续小节将讨论<strong>分类问题</strong>。</li>
-<li>回归问题的目标是预测一个<strong>连续值</strong>。</li>
-<li>若将<strong>无序属性</strong>连续化，可能不恰当地引入<strong>序关系</strong>，通常可以将无序属性拆分成多个<strong>二进制属性</strong>。</li>
-<li><strong>模型最优的定义</strong>是使损失函数最小化，即预测值与真实值的误差最小。通常取<strong>方差</strong>作为损失函数。</li>
-<li><strong>二乘法</strong>意为求解问题时计算误差的平方和，最小化误差即是最小化<strong>欧几里得距离</strong>。</li>
+<li>本节讨论的是<strong>回归问题</strong>，最早由<strong>高斯</strong>提出，重点在于通过模型预测一个<strong>连续值</strong>。</li>
+<li>若将<strong>无序属性</strong>（如分类变量）连续化，可能不恰当地引入<strong>序关系</strong>，因此通常将无序属性拆分成多个<strong>二进制属性</strong>进行处理。</li>
+<li><strong>模型最优解</strong>是使<strong>损失函数</strong>（如均方误差）最小化。通常，损失函数选择为预测值与真实值的<strong>方差</strong>。</li>
+<li><strong>最小二乘法</strong>通过计算误差平方和来最小化误差，实际上是最小化预测值与真实值之间的<strong>欧几里得距离</strong>。</li>
 <li>未知量是参数 ( w ) 和 ( b )，已知量是特征 ( x ) 和目标值 ( y
-)。我们的目标是找到最合适的参数 ( w ) 和 ( b ) 以最小化误差。</li>
-<li>由于损失函数是<strong>凸函数</strong>，我们可以通过令梯度为 0
-来求解最优解，确保其是全局最小值。对于非凸函数的问题，将在后续（3.3 或
-3.4）讨论。</li>
-<li><strong>闭式解</strong>与<strong>解析解</strong>的区别在于解析解是通过符号运算求得的，闭式解可以是近似的或简化的求解。</li>
-<li>对于<strong>多元线性回归</strong>，矩阵的行数 ( m ) 对应 ( m )
-个样本（如 ( m ) 个瓜），列数 ( d ) 对应 ( d )
-个特征。增加一列是为了将<strong>偏置项</strong> ( b )
-合并到向量中。</li>
-<li>对向量求导意味着计算梯度，即方向导数。</li>
-<li>公式 3.10
-很重要，它需要<strong>矩阵可逆</strong>，即满足<strong>满秩矩阵</strong>或<strong>正定矩阵</strong>的条件。</li>
-<li>满秩矩阵的条件常常不能满足，尤其是当样本数量少于特征数量时，此时可能出现多个解。引入<strong>正则化项</strong>可以消减特征个数，并避免过拟合问题。</li>
-<li>可以对目标值 ( y )
-作<strong>非线性变换</strong>，例如<strong>对数变换</strong>，使模型具备更强的表达能力。</li>
+)。模型的目标是找到使误差最小的最优参数 ( w ) 和 ( b )。</li>
+<li>当损失函数是<strong>凸函数</strong>时，可以通过计算梯度并令其为 0
+来找到全局最优解。对于非凸问题，后续章节（如3.3/3.4）将讨论数值优化方法。</li>
+<li><strong>闭式解</strong>表示可以通过解析求解的方法直接得到最优解，而<strong>解析解</strong>一般指符号化的精确解法。</li>
+<li>在<strong>多元线性回归</strong>中，样本数 ( m )
+对应数据矩阵的行数，特征数 ( d )
+对应列数。增加一列用来表示<strong>偏置项</strong> ( b )。</li>
+<li>对向量求导意味着计算梯度，从而为最优化问题提供方向信息。</li>
+<li><strong>公式 3.10</strong> 要求数据矩阵 ( X )
+的满秩性，以确保矩阵的可逆性。这需要满足矩阵为<strong>满秩矩阵</strong>或<strong>正定矩阵</strong>的条件。</li>
+<li>当样本数量少于特征数量时，数据矩阵可能不是满秩的，导致方程无解或多解。此时可以通过引入<strong>正则化项</strong>（如
+L2 正则化）来解决。</li>
+<li>通过对目标值 ( y )
+进行<strong>非线性变换</strong>（如对数变换）可以提高模型的表达能力，适应更复杂的情况。</li>
 </ol>
 <h3 id="对数几率回归logistic-regression">3.3 对数几率回归（Logistic
 Regression）</h3>
 <ol type="1">
-<li>又称<strong>逻辑回归</strong>，尽管名字叫“回归”，实际上是解决一个<strong>分类问题</strong>。</li>
-<li><strong>单位阶跃函数</strong>虽然非线性，但存在不可导点，因此常用<strong>对数几率函数</strong>（Logistic
-Function）替代。对数几率函数的导数计算代价低，且类似的替代函数有很多。</li>
-<li><strong>逻辑回归</strong>拟合的是<strong>概率</strong>，而不是真实的标签值。</li>
-<li>为了最大化数据的<strong>联合概率</strong>，我们通常将多个样本的概率连乘，并通过取对数将乘法转换为求和，简化了计算。</li>
-<li>对于复杂的曲面，无法直接求解最优解时，可以使用<strong>数值优化方法</strong>（如梯度下降法）来逐步逼近最小值。</li>
+<li><strong>逻辑回归</strong>虽然带有“回归”的名字，实际解决的是<strong>分类问题</strong>。它通过对输入特征进行线性组合后映射到
+0 到 1 的范围内，从而输出分类概率。</li>
+<li><strong>单位阶跃函数</strong>是非线性的，但由于不可导，实际中常用<strong>对数几率函数</strong>（Logistic
+Function）替代，其计算代价低且导数方便计算。</li>
+<li><strong>逻辑回归</strong>预测的是<strong>概率值</strong>，而非实际的标签。模型通过输出的概率来进行分类决策。</li>
+<li>为了最大化模型的表现，通常使用<strong>最大似然估计</strong>来构建损失函数，将多个样本的联合概率的对数作为优化目标。</li>
+<li>对于无法直接求解的复杂函数，使用<strong>数值优化方法</strong>（如梯度下降法、牛顿法）逐步逼近最优解。</li>
 </ol>
 <h3 id="线性判别分析linear-discriminant-analysis-lda">3.4
 线性判别分析（Linear Discriminant Analysis, LDA）</h3>
 <ol type="1">
-<li><strong>线性判别分析（LDA）</strong>是用于<strong>二分类问题</strong>的方法，其核心思想是找到一个超平面，使得两个类别的样本点尽可能分开。它通过<strong>线性组合</strong>进行分类，并在不同类别之间进行<strong>判别分析</strong>。</li>
+<li><strong>线性判别分析（LDA）</strong>是一种常用的<strong>二分类问题</strong>方法。其核心思想是找到一个超平面，使得不同类别的样本点尽可能分开。</li>
 <li>LDA
-的目标是<strong>最大化类间散布</strong>，同时<strong>最小化类内散布</strong>，从而使得不同类别的样本点更容易被分开。</li>
-<li><strong>协方差</strong>是方差的推广。在二维空间中，协方差可以看作两个向量之间的角度，角度越大，则相关性越强。一维中的协方差退化为方差。</li>
-<li><strong>广义瑞利商</strong>是<strong>瑞利商</strong>的推广形式，它处理的是两个矩阵之间的二次型比值，通常用于<strong>最大化两个矩阵在某个方向上的相对比值</strong>。</li>
-<li><strong>拉格朗日乘子法</strong>通过引入一个新的变量（即<strong>拉格朗日乘子</strong>），将原来的约束条件嵌入到目标函数中，转化为无约束的优化问题，以便求解最优解。</li>
-<li>LDA 可以推广到<strong>多分类任务</strong>。对于 ( n ) 个类，最多需要
-( n-1 ) 维的超平面来将这些类完全分开。</li>
+的目标是<strong>最大化类间散布</strong>，同时<strong>最小化类内散布</strong>，从而让不同类别的样本更易分开。</li>
+<li><strong>协方差</strong>是方差的推广，描述了两组数据之间的关联程度。在二维情况下，协方差可以理解为两个向量之间的夹角大小。</li>
+<li><strong>广义瑞利商</strong>是一种用于求解特征值问题的比值，通常用于<strong>最大化两个矩阵在某个方向上的相对比值</strong>，以确定最优分类边界。</li>
+<li><strong>拉格朗日乘子法</strong>通过引入<strong>拉格朗日乘子</strong>，将带约束的问题转换为无约束优化问题，便于使用标准优化算法求解。</li>
+<li>LDA 可以推广到<strong>多分类任务</strong>。对于 ( n )
+个类别，最多需要 ( n-1 ) 个维度的超平面来将这些类别完全分开。</li>
 </ol>
 <h3 id="多分类学习">3.5 多分类学习</h3>
+<ol type="1">
+<li><strong>多分类问题</strong>可以通过<strong>多二分类问题</strong>来解决，即将每个类别拆解成多个二分类任务，常用的策略包括<strong>一对一</strong>、<strong>一对多</strong>和<strong>多对多</strong>。</li>
+<li><strong>纠错输出码（ECOC）</strong>
+通过将多分类问题转化为多个二分类问题，并结合冗余编码来容错。当某些分类器出错时，ECOC
+利用编码之间的距离修正错误，从而得到正确的分类结果。</li>
+<li><strong>海明距离</strong>是用于衡量两个等长二进制字符串之间不同字符数量的度量方式。海明距离越大，错误修正能力越强。</li>
+</ol>
 <h3 id="类别不平衡问题">3.6 类别不平衡问题</h3>
+<ol type="1">
+<li><strong>类别不平衡问题</strong>指的是在分类任务中，不同类别的样本数量差异过大，模型可能会偏向预测多数类样本，忽视少数类。</li>
+<li><strong>再缩放策略（rescaling）</strong>
+通过调整分类器的输出概率，使模型在处理少数类时更加敏感。具体做法是根据类别的数量比对概率输出进行调整。</li>
+<li><strong>欠采样（Undersampling）</strong> 和
+<strong>过采样（Oversampling）</strong>
+是处理类别不平衡的两种常用技术。欠采样通过减少多数类样本来平衡数据，而过采样通过增加少数类样本来平衡数据。</li>
+</ol>
+<ul>
+<li><strong>欠采样</strong>：通过减少多数类样本来实现数据平衡，但可能会丢失重要的多数类信息。</li>
+<li><strong>过采样</strong>：通过复制或生成新的少数类样本实现平衡，常见的技术如
+SMOTE，但容易导致过拟合。</li>
+</ul>
 
                 
               </div>
