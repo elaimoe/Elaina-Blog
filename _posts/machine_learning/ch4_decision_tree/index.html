@@ -19,21 +19,21 @@
   <meta name="author" content="Ashen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="5.1 神经元模型">
+    <meta name="description" content="4.1 基本流程  广泛应用：决策树是一种常见的机器学习算法，广泛用于分类和回归问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。 基本流程：  在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2 节）。 决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。   4.2 划分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第5章 神经网络">
-<meta property="og:url" content="https://ashen.pages.dev/_posts/machine_learning/%E7%AC%AC5%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:title" content="第4章 决策树">
+<meta property="og:url" content="https://ashen.pages.dev/_posts/machine_learning/ch4_decision_tree/index.html">
 <meta property="og:site_name" content="AshenWitch">
-<meta property="og:description" content="5.1 神经元模型">
+<meta property="og:description" content="4.1 基本流程  广泛应用：决策树是一种常见的机器学习算法，广泛用于分类和回归问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。 基本流程：  在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2 节）。 决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。   4.2 划分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-02T07:58:58.590Z">
+<meta property="article:published_time" content="2024-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-02T07:52:57.771Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>第5章 神经网络 - AshenWitch</title>
+  <title>第4章 决策树 - AshenWitch</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第5章 神经网络"></span>
+            <span id="subtitle" data-typed-text="第4章 决策树"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-02 00:00" pubdate>
-          2024年10月2日 凌晨
+        <time datetime="2024-10-01 00:00" pubdate>
+          2024年10月1日 凌晨
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7 字
+          1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          1 分钟
+          9 分钟
         
       </span>
     
@@ -270,13 +270,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第5章 神经网络</h1>
+            <h1 id="seo-header">第4章 决策树</h1>
             
             
               <div class="markdown-body">
                 
                 <span id="more"></span>
-<h3 id="神经元模型">5.1 神经元模型</h3>
+<h3 id="基本流程">4.1 基本流程</h3>
+<ol type="1">
+<li><strong>广泛应用</strong>：决策树是一种常见的机器学习算法，广泛用于<strong>分类</strong>和<strong>回归</strong>问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。</li>
+<li><strong>基本流程</strong>：
+<ol type="1">
+<li>在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2
+节）。</li>
+<li>决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。</li>
+</ol></li>
+</ol>
+<h3 id="划分选择">4.2 划分选择</h3>
+<ol type="1">
+<li><strong>信息熵</strong>：用于度量样本集合的<strong>纯度</strong>。信息熵越小，样本越纯（即样本更趋向于属于同一类别）。</li>
+<li><strong>信息增益</strong>：
+<ul>
+<li>决策树通过<strong>信息增益</strong>来选择特征进行划分。信息增益衡量的是划分后样本集合的熵减少程度。信息增益越大，特征越适合作为划分依据。</li>
+<li><strong>ID3算法</strong>使用信息增益作为选择标准，但倾向于选择取值较多的属性，这可能导致决策树过度复杂（如每个样本一个分叉的情况）。</li>
+</ul></li>
+<li><strong>增益率（C4.5算法）</strong>：<strong>C4.5算法</strong>不直接使用信息增益，而是使用<strong>增益率</strong>，以减少信息增益对可取值较多属性的偏好。C4.5会优先选择信息增益高于平均水平的属性，再从中选择增益率最高的属性进行划分。增益率会偏好取值较少的属性，需要对结果进行调整。</li>
+<li><strong>基尼指数（CART算法）</strong>：<strong>CART算法</strong>使用<strong>基尼指数</strong>来选择最优划分属性。基尼指数用于衡量数据集的纯度，基尼指数越小，数据集越纯。</li>
+</ol>
+<h3 id="剪枝处理">4.3 剪枝处理</h3>
+<ol type="1">
+<li><strong>剪枝的目的</strong>：剪枝的主要目的是为了<strong>避免过拟合</strong>。过拟合会导致决策树在训练数据上表现良好，但在新数据上泛化能力较差。</li>
+<li><strong>预剪枝与后剪枝</strong>：
+<ul>
+<li><strong>预剪枝</strong>：在构建决策树时提前停止划分，限制树的深度或节点数量。</li>
+<li><strong>后剪枝</strong>：构建完整的决策树后，通过合并或删除叶节点来减少树的复杂度。后剪枝比预剪枝更有效，通常能避免欠拟合。</li>
+</ul></li>
+<li><strong>决策树桩</strong>：决策树桩是只有一层分划的极简决策树，常用于简单场景下的分类任务。</li>
+</ol>
+<h3 id="连续与缺失值处理">4.4 连续与缺失值处理</h3>
+<ol type="1">
+<li><strong>连续值处理</strong>：
+决策树最初设计时只处理离散值。对于<strong>连续值</strong>，通常采用<strong>离散化</strong>的方法处理，或者通过计算<strong>信息增益</strong>来确定最佳划分点。</li>
+<li><strong>缺失值处理</strong>：
+决策树在处理<strong>缺失值</strong>方面具有一定优势。通过引入<strong>权重</strong>，决策树能够在划分过程中公平地考虑带有缺失值的样本，而不是简单地丢弃这些样本。</li>
+<li><strong>权重的确定</strong>：
+缺失样本的权重可以根据<strong>无缺失样本的比例</strong>确定，确保缺失值样本能够合理参与决策树的划分过程。</li>
+</ol>
+<h3 id="多变量决策树">4.5 多变量决策树</h3>
+<ol type="1">
+<li><strong>多变量决策树的划分能力</strong>：
+普通的决策树的分类面与坐标轴平行，而<strong>多变量决策树</strong>能够通过组合多个属性进行划分，形成斜线甚至更复杂的划分面。</li>
+<li><strong>其他划分准则</strong>：
+除了信息增益、增益率和基尼指数，研究者还设计了许多其他划分准则。这些准则在特定场景下可能会影响决策树的构建和尺寸，但对模型的泛化性能影响较小。</li>
+<li><strong>剪枝的重要性</strong>：
+尽管不同的划分标准对决策树的尺寸有一定影响，但<strong>剪枝方法和剪枝的程度</strong>对决策树的泛化能力影响更为显著。</li>
+</ol>
 
                 
               </div>
@@ -315,15 +363,15 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第5章 神经网络</div>
-      <div>https://ashen.pages.dev/_posts/machine_learning/第5章 神经网络/</div>
+      <div>第4章 决策树</div>
+      <div>https://ashen.pages.dev/_posts/machine_learning/ch4_decision_tree/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月2日</div>
+          <div>2024年10月1日</div>
         </div>
       
       
@@ -355,12 +403,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/_posts/machine_learning/ch5_neural_network/" title="第5章 神经网络">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第5章 神经网络</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/_posts/machine_learning/decision_tree/" title="第4章 决策树">
-                        <span class="hidden-mobile">第4章 决策树</span>
+                      <a href="/_posts/machine_learning/ch3_linear_model/" title="第3章 线性模型">
+                        <span class="hidden-mobile">第3章 线性模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
