@@ -19,21 +19,21 @@
   <meta name="author" content="Ashen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3.1 基本形式  要熟练使用线性代数的方法简化问题表示，尤其是在高维数据和复杂模型中。 线性模型是非线性模型的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，重点在于通过模型预测一个连续值。 若将无序属性（如分类变量）连续化，可能不恰当地引入序关系，因此通常将无序属性拆分成多个二进制属性进">
+    <meta name="description" content="4.1 基本流程  广泛应用：决策树是一种常见的机器学习算法，广泛用于分类和回归问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。 基本流程：  在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2 节）。 决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。   4.2 划分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第3章 线性模型">
-<meta property="og:url" content="https://ashen.pages.dev/linear_model/index.html">
+<meta property="og:title" content="第4章 决策树">
+<meta property="og:url" content="https://ashen.pages.dev/decision_tree/index.html">
 <meta property="og:site_name" content="AshenWitch">
-<meta property="og:description" content="3.1 基本形式  要熟练使用线性代数的方法简化问题表示，尤其是在高维数据和复杂模型中。 线性模型是非线性模型的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。  3.2 线性回归  本节讨论的是回归问题，最早由高斯提出，重点在于通过模型预测一个连续值。 若将无序属性（如分类变量）连续化，可能不恰当地引入序关系，因此通常将无序属性拆分成多个二进制属性进">
+<meta property="og:description" content="4.1 基本流程  广泛应用：决策树是一种常见的机器学习算法，广泛用于分类和回归问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。 基本流程：  在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2 节）。 决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。   4.2 划分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-01T08:13:02.267Z">
+<meta property="article:published_time" content="2024-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-02T07:22:06.182Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>第3章 线性模型 - AshenWitch</title>
+  <title>第4章 决策树 - AshenWitch</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第3章 线性模型"></span>
+            <span id="subtitle" data-typed-text="第4章 决策树"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-29 00:00" pubdate>
-          2024年9月29日 凌晨
+        <time datetime="2024-10-01 00:00" pubdate>
+          2024年10月1日 凌晨
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          9 分钟
         
       </span>
     
@@ -270,84 +270,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第3章 线性模型</h1>
+            <h1 id="seo-header">第4章 决策树</h1>
             
             
               <div class="markdown-body">
                 
                 <span id="more"></span>
-<h3 id="基本形式">3.1 基本形式</h3>
+<h3 id="基本流程">4.1 基本流程</h3>
 <ol type="1">
-<li>要熟练使用<strong>线性代数</strong>的方法简化问题表示，尤其是在高维数据和复杂模型中。</li>
-<li><strong>线性模型</strong>是<strong>非线性模型</strong>的基础，许多复杂模型（如神经网络）都基于线性模型的概念并通过非线性变换得到。</li>
-</ol>
-<h3 id="线性回归">3.2 线性回归</h3>
+<li><strong>广泛应用</strong>：决策树是一种常见的机器学习算法，广泛用于<strong>分类</strong>和<strong>回归</strong>问题。它通过一系列的决策规则将数据集划分为不同的子集，从而做出预测。</li>
+<li><strong>基本流程</strong>：
 <ol type="1">
-<li>本节讨论的是<strong>回归问题</strong>，最早由<strong>高斯</strong>提出，重点在于通过模型预测一个<strong>连续值</strong>。</li>
-<li>若将<strong>无序属性</strong>（如分类变量）连续化，可能不恰当地引入<strong>序关系</strong>，因此通常将无序属性拆分成多个<strong>二进制属性</strong>进行处理。</li>
-<li><strong>模型最优解</strong>是使<strong>损失函数</strong>（如均方误差）最小化。通常，损失函数选择为预测值与真实值的<strong>方差</strong>。</li>
-<li><strong>最小二乘法</strong>通过计算误差平方和来最小化误差，实际上是最小化预测值与真实值之间的<strong>欧几里得距离</strong>。</li>
-<li>未知量是参数 ( w ) 和 ( b )，已知量是特征 ( x ) 和目标值 ( y
-)。模型的目标是找到使误差最小的最优参数 ( w ) 和 ( b )。</li>
-<li>当损失函数是<strong>凸函数</strong>时，可以通过计算梯度并令其为 0
-来找到全局最优解。对于非凸问题，后续章节（如3.3/3.4）将讨论数值优化方法。</li>
-<li><strong>闭式解</strong>表示可以通过解析求解的方法直接得到最优解，而<strong>解析解</strong>一般指符号化的精确解法。</li>
-<li>在<strong>多元线性回归</strong>中，样本数 ( m )
-对应数据矩阵的行数，特征数 ( d )
-对应列数。增加一列用来表示<strong>偏置项</strong> ( b )。</li>
-<li>对向量求导意味着计算梯度，从而为最优化问题提供方向信息。</li>
-<li><strong>公式 3.10</strong> 要求数据矩阵 ( X )
-的满秩性，以确保矩阵的可逆性。这需要满足矩阵为<strong>满秩矩阵</strong>或<strong>正定矩阵</strong>的条件。</li>
-<li>当样本数量少于特征数量时，数据矩阵可能不是满秩的，导致方程无解或多解。此时可以通过引入<strong>正则化项</strong>（如
-L2 正则化）来解决。</li>
-<li>通过对目标值 ( y )
-进行<strong>非线性变换</strong>（如对数变换）可以提高模型的表达能力，适应更复杂的情况。</li>
+<li>在构建决策树时，首先需要根据某种标准选择特征来进行划分（详见 4.2
+节）。</li>
+<li>决策树的每次划分都基于选定的特征，将数据集划分成多个子集，直到每个子集满足某种停止条件（如纯度、叶节点分类单一等）。</li>
+</ol></li>
 </ol>
-<h3 id="对数几率回归logistic-regression">3.3 对数几率回归（Logistic
-Regression）</h3>
+<h3 id="划分选择">4.2 划分选择</h3>
 <ol type="1">
-<li><strong>逻辑回归</strong>虽然带有“回归”的名字，实际解决的是<strong>分类问题</strong>。它通过对输入特征进行线性组合后映射到
-0 到 1 的范围内，从而输出分类概率。</li>
-<li><strong>单位阶跃函数</strong>是非线性的，但由于不可导，实际中常用<strong>对数几率函数</strong>（Logistic
-Function）替代，其计算代价低且导数方便计算。</li>
-<li><strong>逻辑回归</strong>预测的是<strong>概率值</strong>，而非实际的标签。模型通过输出的概率来进行分类决策。</li>
-<li>为了最大化模型的表现，通常使用<strong>最大似然估计</strong>来构建损失函数，将多个样本的联合概率的对数作为优化目标。</li>
-<li>对于无法直接求解的复杂函数，使用<strong>数值优化方法</strong>（如梯度下降法、牛顿法）逐步逼近最优解。</li>
-</ol>
-<h3 id="线性判别分析linear-discriminant-analysis-lda">3.4
-线性判别分析（Linear Discriminant Analysis, LDA）</h3>
-<ol type="1">
-<li><strong>线性判别分析（LDA）</strong>是一种常用的<strong>二分类问题</strong>方法。其核心思想是找到一个超平面，使得不同类别的样本点尽可能分开。</li>
-<li>LDA
-的目标是<strong>最大化类间散布</strong>，同时<strong>最小化类内散布</strong>，从而让不同类别的样本更易分开。</li>
-<li><strong>协方差</strong>是方差的推广，描述了两组数据之间的关联程度。在二维情况下，协方差可以理解为两个向量之间的夹角大小。</li>
-<li><strong>广义瑞利商</strong>是一种用于求解特征值问题的比值，通常用于<strong>最大化两个矩阵在某个方向上的相对比值</strong>，以确定最优分类边界。</li>
-<li><strong>拉格朗日乘子法</strong>通过引入<strong>拉格朗日乘子</strong>，将带约束的问题转换为无约束优化问题，便于使用标准优化算法求解。</li>
-<li>LDA 可以推广到<strong>多分类任务</strong>。对于 ( n )
-个类别，最多需要 ( n-1 ) 个维度的超平面来将这些类别完全分开。</li>
-</ol>
-<h3 id="多分类学习">3.5 多分类学习</h3>
-<ol type="1">
-<li><strong>多分类问题</strong>可以通过<strong>多二分类问题</strong>来解决，即将每个类别拆解成多个二分类任务，常用的策略包括<strong>一对一</strong>、<strong>一对多</strong>和<strong>多对多</strong>。</li>
-<li><strong>纠错输出码（ECOC）</strong>
-通过将多分类问题转化为多个二分类问题，并结合冗余编码来容错。当某些分类器出错时，ECOC
-利用编码之间的距离修正错误，从而得到正确的分类结果。</li>
-<li><strong>海明距离</strong>是用于衡量两个等长二进制字符串之间不同字符数量的度量方式。海明距离越大，错误修正能力越强。</li>
-</ol>
-<h3 id="类别不平衡问题">3.6 类别不平衡问题</h3>
-<ol type="1">
-<li><strong>类别不平衡问题</strong>指的是在分类任务中，不同类别的样本数量差异过大，模型可能会偏向预测多数类样本，忽视少数类。</li>
-<li><strong>再缩放策略（rescaling）</strong>
-通过调整分类器的输出概率，使模型在处理少数类时更加敏感。具体做法是根据类别的数量比对概率输出进行调整。</li>
-<li><strong>欠采样（Undersampling）</strong> 和
-<strong>过采样（Oversampling）</strong>
-是处理类别不平衡的两种常用技术。欠采样通过减少多数类样本来平衡数据，而过采样通过增加少数类样本来平衡数据。</li>
-</ol>
+<li><strong>信息熵</strong>：用于度量样本集合的<strong>纯度</strong>。信息熵越小，样本越纯（即样本更趋向于属于同一类别）。</li>
+<li><strong>信息增益</strong>：
 <ul>
-<li><strong>欠采样</strong>：通过减少多数类样本来实现数据平衡，但可能会丢失重要的多数类信息。</li>
-<li><strong>过采样</strong>：通过复制或生成新的少数类样本实现平衡，常见的技术如
-SMOTE，但容易导致过拟合。</li>
-</ul>
+<li>决策树通过<strong>信息增益</strong>来选择特征进行划分。信息增益衡量的是划分后样本集合的熵减少程度。信息增益越大，特征越适合作为划分依据。</li>
+<li><strong>ID3算法</strong>使用信息增益作为选择标准，但倾向于选择取值较多的属性，这可能导致决策树过度复杂（如每个样本一个分叉的情况）。</li>
+</ul></li>
+<li><strong>增益率（C4.5算法）</strong>：<strong>C4.5算法</strong>不直接使用信息增益，而是使用<strong>增益率</strong>，以减少信息增益对可取值较多属性的偏好。C4.5会优先选择信息增益高于平均水平的属性，再从中选择增益率最高的属性进行划分。增益率会偏好取值较少的属性，需要对结果进行调整。</li>
+<li><strong>基尼指数（CART算法）</strong>：<strong>CART算法</strong>使用<strong>基尼指数</strong>来选择最优划分属性。基尼指数用于衡量数据集的纯度，基尼指数越小，数据集越纯。</li>
+</ol>
+<h3 id="剪枝处理">4.3 剪枝处理</h3>
+<ol type="1">
+<li><strong>剪枝的目的</strong>：剪枝的主要目的是为了<strong>避免过拟合</strong>。过拟合会导致决策树在训练数据上表现良好，但在新数据上泛化能力较差。</li>
+<li><strong>预剪枝与后剪枝</strong>：
+<ul>
+<li><strong>预剪枝</strong>：在构建决策树时提前停止划分，限制树的深度或节点数量。</li>
+<li><strong>后剪枝</strong>：构建完整的决策树后，通过合并或删除叶节点来减少树的复杂度。后剪枝比预剪枝更有效，通常能避免欠拟合。</li>
+</ul></li>
+<li><strong>决策树桩</strong>：决策树桩是只有一层分划的极简决策树，常用于简单场景下的分类任务。</li>
+</ol>
+<h3 id="连续与缺失值处理">4.4 连续与缺失值处理</h3>
+<ol type="1">
+<li><strong>连续值处理</strong>：
+决策树最初设计时只处理离散值。对于<strong>连续值</strong>，通常采用<strong>离散化</strong>的方法处理，或者通过计算<strong>信息增益</strong>来确定最佳划分点。</li>
+<li><strong>缺失值处理</strong>：
+决策树在处理<strong>缺失值</strong>方面具有一定优势。通过引入<strong>权重</strong>，决策树能够在划分过程中公平地考虑带有缺失值的样本，而不是简单地丢弃这些样本。</li>
+<li><strong>权重的确定</strong>：
+缺失样本的权重可以根据<strong>无缺失样本的比例</strong>确定，确保缺失值样本能够合理参与决策树的划分过程。</li>
+</ol>
+<h3 id="多变量决策树">4.5 多变量决策树</h3>
+<ol type="1">
+<li><strong>多变量决策树的划分能力</strong>：
+普通的决策树的分类面与坐标轴平行，而<strong>多变量决策树</strong>能够通过组合多个属性进行划分，形成斜线甚至更复杂的划分面。</li>
+<li><strong>其他划分准则</strong>：
+除了信息增益、增益率和基尼指数，研究者还设计了许多其他划分准则。这些准则在特定场景下可能会影响决策树的构建和尺寸，但对模型的泛化性能影响较小。</li>
+<li><strong>剪枝的重要性</strong>：
+尽管不同的划分标准对决策树的尺寸有一定影响，但<strong>剪枝方法和剪枝的程度</strong>对决策树的泛化能力影响更为显著。</li>
+</ol>
 
                 
               </div>
@@ -386,15 +363,15 @@ SMOTE，但容易导致过拟合。</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第3章 线性模型</div>
-      <div>https://ashen.pages.dev/linear_model/</div>
+      <div>第4章 决策树</div>
+      <div>https://ashen.pages.dev/decision_tree/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月29日</div>
+          <div>2024年10月1日</div>
         </div>
       
       
@@ -426,18 +403,12 @@ SMOTE，但容易导致过拟合。</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/decision_tree/" title="第4章 决策树">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">第4章 决策树</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Modern-Algebra/" title="近世代数">
-                        <span class="hidden-mobile">近世代数</span>
+                      <a href="/linear_model/" title="第3章 线性模型">
+                        <span class="hidden-mobile">第3章 线性模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
