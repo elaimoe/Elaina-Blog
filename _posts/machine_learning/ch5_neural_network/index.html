@@ -19,15 +19,15 @@
   <meta name="author" content="Ashen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="5.1 神经元模型  神经网络一般指人工神经网络。 在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。 ### 5.2 感知机与多层网络 感知机是由两层神经元">
+    <meta name="description" content="5.1 神经元模型  神经网络一般指人工神经网络。 在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。  5.2 感知机与多层网络  感知机是由两层神经元">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第5章 神经网络">
 <meta property="og:url" content="https://www.example.com/_posts/machine_learning/ch5_neural_network/index.html">
 <meta property="og:site_name" content="AshenWitch">
-<meta property="og:description" content="5.1 神经元模型  神经网络一般指人工神经网络。 在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。 ### 5.2 感知机与多层网络 感知机是由两层神经元">
+<meta property="og:description" content="5.1 神经元模型  神经网络一般指人工神经网络。 在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。  5.2 感知机与多层网络  感知机是由两层神经元">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-02T09:37:20.628Z">
+<meta property="article:modified_time" content="2024-10-02T15:36:18.080Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -279,8 +279,10 @@
 <h3 id="神经元模型">5.1 神经元模型</h3>
 <ol type="1">
 <li>神经网络一般指人工神经网络。</li>
-<li>在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。
-### 5.2 感知机与多层网络</li>
+<li>在神经元模型中，神经元接收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。理想的激活函数是阶跃函数，但考虑函数性质，采取Sigmoid函数（挤压函数）更为合适。</li>
+</ol>
+<h3 id="感知机与多层网络">5.2 感知机与多层网络</h3>
+<ol type="1">
 <li>感知机是由两层神经元组成的模型，由输入层和输出层构成的。感知机只有输出层神经元进行激活函数处理，即只拥有一层功能神经元，只能处理线性可分问题。</li>
 <li>可以利用感知机构建与或非门。</li>
 <li>阈值θ可看作一个固定输入为-1的哑结点所对应的连接权重，使权重和阈值的学习就可统一为权重的学习。
