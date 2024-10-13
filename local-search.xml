@@ -65,7 +65,7 @@
     <link href="/_posts/abstract_algebra/"/>
     <url>/_posts/abstract_algebra/</url>
     
-    <content type="html"><![CDATA[<span id="more"></span>]]></content>
+    <content type="html"><![CDATA[<p>适于快速理解的笔记，不包含证明。 <span id="more"></span> ## 第二章 群 ### 2.1群的定义和初步性质 第一个问题是：群是什么东西？定义是什么？</p><blockquote><p>定义1 如果非空集合G有代数运算 ∘ 满足以下条件： 1.结合律成立：即对G中的任意元素a，b，c都有 <span class="math display">\[(a∘ b) ∘ c = a ∘ (b ∘ c)\]</span> 2.G中有元素e，叫做G的左单位元，它对G中每个元素a，都有<br> <spanclass="math display">\[e ∘ a = a\]</span> 3.对G中的每个元素a，在G中都有元素<spanclass="math inline">\(a^{-1}\)</span>，叫做a的左逆元，使 <spanclass="math display">\[a^{-1} ∘ a = e\]</span>则称G对这个代数运算作成一个群</p></blockquote><p>这个定义并不是唯一的定义方法。其中三点可以分别总结为：1.结合律成立；2. 左单位元存在；3. 左逆元存在。</p><p>对于满足交换律的群，则称作交换群（可换群）或Abel群；否则称为非交换群（非可换群）或非Abel群。<br></p><p>由这个定义可见，对于群来说不仅要注意其中含有什么样的元素，更要注意这些元素之间的代数运算是什么。在不致混淆的前提下，为了方便常将群的代数运算叫做“乘法”。</p><p>从元素的数量上来看，如果一个群中只包含有限个元素，则称为有限群，否则称为无限群。将群中所含元素的个数称作群的阶，记为|G|，对于无限群，群的阶称为无限。</p><p>下面来讨论群的一些基本性质。</p><blockquote><p>定理1 群的左单位元也是右单位元，并且是唯一的。 定理2群G中的元素a的左逆元<spanclass="math inline">\(a^{-1}\)</span>也是a的右逆元，并且是唯一的。</p></blockquote><p>从这里可以看出，</p>]]></content>
     
     
     
