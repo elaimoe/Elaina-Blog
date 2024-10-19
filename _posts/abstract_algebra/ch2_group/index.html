@@ -27,7 +27,7 @@
 <meta property="og:description" content="适于快速理解的笔记，不包含证明。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-13T11:51:17.488Z">
+<meta property="article:modified_time" content="2024-10-19T15:31:41.501Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          4.2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          25 分钟
+          36 分钟
         
       </span>
     
@@ -457,8 +457,156 @@ class="math display">\[H≤G \iff HH=H\]</span></p>
 <p><span
 class="math inline">\(HK=KH\)</span>是指两个集合的相等，并不是说H中的任何元素与K中任何元素相乘时可以交换。当然，对于交换群则另当别论。交换群的二子群之积必仍为子群。</p>
 <h2 id="循环群">2.4 循环群</h2>
+<p>循环群是一种被完全解决的群。下面记<span
+class="math inline">\(&lt;\\M&gt;\)</span>表示G中包含M的一切子群的交。显然<span
+class="math inline">\(&lt;\\M&gt;\)</span>必为G的一个子集，它是G中包含M的最小子集。</p>
+<blockquote>
+<p>定义1 称<span
+class="math inline">\(&lt;\\M&gt;\)</span>为群G中由子集M生成的子群，并把M叫做这个子群的生成系。<br>
+一个群或子群可能有很多的生成系，甚至可能有无限多个生成系。集合M中的元素可以是无限个，也可以是有限个。当
+<span class="math display">\[M=\{a1,a2,…,an\}\]</span> 时，把<span
+class="math inline">\(&lt;\\M&gt;\)</span>简记为<span
+class="math inline">\(&lt;\\a1,a2,…,an&gt;\)</span>。特别的，当<span
+class="math inline">\(M=\{a\}\)</span>时，则记作 <span
+class="math display">\[&lt;\\M&gt;=&lt;\\a&gt;\]</span></p>
+</blockquote>
+<blockquote>
+<p>定义2 如果群G可以由一个元素a生成，即<span class="math inline">\(G =
+&lt;\\a&gt;\)</span>,则称G为由a生成的一个循环群，并称a为G的一个生成元。<br>
+于是，<span class="math inline">\(&lt;\\a&gt;\)</span>是由一切形如 <span
+class="math display">\[a^k \quad (k是任意整数)\]</span>
+的元素生成的子群，亦即 <span
+class="math display">\[&lt;\\a&gt;=\{...,a^{-3},a^{-2},a^{-1},a^0,a^1,a^2,a^3,...\}\]</span>
+易知，循环群必是交换群。<br>
+若群的代数运算用加号表示，则指数应变成倍数，从而由a生成的循环群应表示为
+<span
+class="math display">\[&lt;\\a&gt;=\{...,-3a,-2a,-a,0,a,2a,3a,...\}\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>定理 1</strong> 设 <span class="math inline">\(G = \langle a
+\rangle\)</span> 为任一循环群，则： 1. 当 <span
+class="math inline">\(|a| = \infty\)</span> 时，<span
+class="math inline">\(G = \langle a \rangle = \{ \cdots, a^{-2}, a^{-1},
+e, a, a^2, \cdots \}\)</span> 为无限循环群，且与整数组群 <span
+class="math inline">\(\mathbb{Z}\)</span> 同构； 2. 当 <span
+class="math inline">\(|a| = n\)</span> 时，<span class="math inline">\(G
+= \langle a \rangle = \{ e, a, a^2, \cdots, a^{n-1} \}\)</span> 为 <span
+class="math inline">\(n\)</span> 阶循环群，且与 <span
+class="math inline">\(n\)</span> 次单位根乘法群 <span
+class="math inline">\(U_n\)</span> 同构。</p>
+</blockquote>
+<p>这个定理是在说，所有的无限循环群彼此同构，有限同阶循环群彼此同构，不同阶的群显然不同构。在同构意义下，循环群只有两种：整数加群和n次单位根乘法群（这里的n是任意正整数）。</p>
+<blockquote>
+<p>推论1 n阶群G是循环群<span
+class="math inline">\(\iff\)</span>G有n阶元素</p>
+</blockquote>
+<blockquote>
+<p>定理2 无限循环群 <span class="math inline">\(\langle a
+\rangle\)</span> 有两个生成元，即 <span class="math inline">\(a\)</span>
+与 <span class="math inline">\(a^{-1}\)</span>；<span
+class="math inline">\(n\)</span> 阶循环群有 <span
+class="math inline">\(\varphi(n)\)</span> 个生成元，其中 <span
+class="math inline">\(\varphi(n)\)</span> 为 Euler(欧拉) 函数。</p>
+</blockquote>
+<p>Euler函数是小于等于n的正整数中与n互质的数的数目，但是在这里具体表达说明意义需要进一步说明。</p>
+<p>最后讨论循环群的子群。</p>
+<blockquote>
+<p>定理3 循环群的子群仍为循环群。</p>
+</blockquote>
+<blockquote>
+<p>定理4 无限循环群 <span class="math inline">\(G = \langle a
+\rangle\)</span> 有无穷多个子群；当 <span class="math inline">\(G =
+\langle a \rangle\)</span> 为 <span class="math inline">\(n\)</span>
+阶循环群时，对 <span class="math inline">\(n\)</span> 的每个正因数 <span
+class="math inline">\(k\)</span>，<span class="math inline">\(G\)</span>
+有且只有一个 <span class="math inline">\(k\)</span> 阶子群，这个子群就是
+<span class="math inline">\(\langle a^{\frac{n}{k}}
+\rangle\)</span>。</p>
+</blockquote>
+<blockquote>
+<p>推论2 n阶循环群有且仅有T(n)个子群。</p>
+</blockquote>
 <h2 id="变换群">2.5 变换群</h2>
+<blockquote>
+<p>定义1
+设M是一个非空集合。则由M的一些变换关于变换的乘法所作成的群，称为M的一个变换群；由M的若干个双射变换关于变换的乘法作成的群，称为M的一个双射变换群；由M的若干个非双射变换关于变换的乘法作成的群，称为M的一个非双射变换群。</p>
+</blockquote>
+<blockquote>
+<p>定理1 设 <span class="math inline">\(M\)</span> 为任一非空集合，<span
+class="math inline">\(S(M)\)</span> 为由 <span
+class="math inline">\(M\)</span> 的全体双射变换所构成的集合。则 <span
+class="math inline">\(S(M)\)</span> 关于变换的复合法构成一个群。</p>
+</blockquote>
+<blockquote>
+<p>定理2 称集合 <span class="math inline">\(M\)</span> 的双射变换群
+<span class="math inline">\(S(M)\)</span> 为 <span
+class="math inline">\(M\)</span> 上的对称群。当 <span
+class="math inline">\(|M| = n\)</span> 时，其上的对称群记为 <span
+class="math inline">\(S_n\)</span>，并称为 <span
+class="math inline">\(n\)</span> 元对称群。</p>
+</blockquote>
+<blockquote>
+<p>定理3 设 <span class="math inline">\(G\)</span> 是集合 <span
+class="math inline">\(M\)</span> 的一个变换群，则<br />
+<span class="math inline">\(G\)</span> 是双射变换群 <span
+class="math inline">\(\iff G\)</span> 含有 <span
+class="math inline">\(M\)</span> 的单射变换。</p>
+</blockquote>
+<blockquote>
+<p>推论1 设 <span class="math inline">\(G\)</span> 是集合 <span
+class="math inline">\(M\)</span> 的一个变换群，则<br />
+<span class="math inline">\(G\)</span> 是双射变换群 <span
+class="math inline">\(\iff G\)</span> 包含恒等变换。</p>
+</blockquote>
+<blockquote>
+<p>定理3(A.Cayley) 任何群都同一个（双射）变换群同构。</p>
+</blockquote>
+<blockquote>
+<p>推论2 任何n阶有限群都与n元对称群<span
+class="math inline">\(S_n\)</span>的一个子群同构。</p>
+</blockquote>
 <h2 id="置换群">2.6 置换群</h2>
+<blockquote>
+<p>定义1 一个元对称群 <span class="math inline">\(S_n\)</span>
+的任一个元素，都叫做一个n元置换，简称置换。</p>
+</blockquote>
+<blockquote>
+<p>定义2 一个置换如果把某些数码 <span
+class="math inline">\(i_1,i_2,...,i_k\)</span> 变成 <span
+class="math inline">\(i_2,i_3,...,i_k,i_1\)</span>，而其他数码（如果还有的话）都不变，则称为一个k-轮换（循环）置换，简称为轮换（循环）或轮换（循环积），并表示成<br />
+<span class="math display">\[\sigma=(i_1 i_2 \cdots i_k)=(i_2 i_3 \cdots
+i_k i_1)=(i_3 i_4 \cdots i_1 i_2)=...\]</span></p>
+</blockquote>
+<blockquote>
+<p>定理1 不相连轮换相乘时可以交换。</p>
+</blockquote>
+<blockquote>
+<p>定理2
+每个（非恒等）置换都可表示为不相连轮换之积，每个轮换都可表示为对换之积。因此，每个置换都可表示为对换之积。</p>
+</blockquote>
+<blockquote>
+<p>定理3 每个置换表示成对换的乘积时，其对换个数的奇偶性不变。</p>
+</blockquote>
+<blockquote>
+<p>定义3
+一个置换若分解成偶数个对换的乘积，则称为偶置换；否则称为奇置换。<br />
+特别地，恒等置换是偶置换。</p>
+</blockquote>
+<blockquote>
+<p>定理4 <span class="math inline">\(k\)</span>-轮换的阶为 <span
+class="math inline">\(k\)</span>，不相连轮换乘积的阶为各因子的阶的最小公倍数。</p>
+</blockquote>
+<blockquote>
+<p>定理5 设有 <span class="math inline">\(n\)</span> 元置换 <span
+class="math inline">\(\tau = \left( \begin{matrix} 1 &amp; 2 &amp;
+\cdots &amp; n \\ i_1 &amp; i_2 &amp; \cdots &amp; i_n \end{matrix}
+\right)\)</span>，则对任意 <span class="math inline">\(n\)</span> 元置换
+<span class="math inline">\(\sigma\)</span>，有<br />
+<span class="math display">\[\sigma \tau \sigma^{-1} = \left(
+\begin{matrix} \sigma(1) &amp; \sigma(2) &amp; \cdots &amp; \sigma(n) \\
+\sigma(i_1) &amp; \sigma(i_2) &amp; \cdots &amp; \sigma(i_n)
+\end{matrix} \right).\]</span></p>
+</blockquote>
 <h2 id="陪集指数和lagrange定理">2.7 陪集、指数和Lagrange定理</h2>
 <h2 id="群在集合上的作用">*2.8 群在集合上的作用</h2>
 
