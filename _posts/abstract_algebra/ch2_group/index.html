@@ -27,7 +27,7 @@
 <meta property="og:description" content="适于快速理解的笔记，不包含证明。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-19T16:03:06.932Z">
+<meta property="article:modified_time" content="2024-10-20T01:59:27.438Z">
 <meta property="article:author" content="Ashen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k 字
+          4.7k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          36 分钟
+          40 分钟
         
       </span>
     
@@ -513,6 +513,7 @@ class="math inline">\(\varphi(n)\)</span> 为 Euler(欧拉) 函数。</p>
 <blockquote>
 <p>定理3 循环群的子群仍为循环群。</p>
 </blockquote>
+<p>通过这个定理可以知道循环群的子群的性质：必为循环群。</p>
 <blockquote>
 <p>定理4 无限循环群 <span class="math inline">\(G = \langle a
 \rangle\)</span> 有无穷多个子群；当 <span class="math inline">\(G =
@@ -523,30 +524,41 @@ class="math inline">\(k\)</span>，<span class="math inline">\(G\)</span>
 <span class="math inline">\(\langle a^{\frac{n}{k}}
 \rangle\)</span>。</p>
 </blockquote>
+<p>通过这个定理可以知道循环群的子群的性质：无限循环群有无穷多个子群，对n阶循环群的k阶子群唯一确定。</p>
 <blockquote>
 <p>推论2 n阶循环群有且仅有T(n)个子群。</p>
 </blockquote>
+<p>n的标准分解式为<span
+class="math inline">\(n=p_1^{k_1}p_2^{k_2}...p_r^{k_r}\)</span>，其中<span
+class="math inline">\(p_i\)</span>为素数，<span
+class="math inline">\(k_i\)</span>为正整数，由此得到<span
+class="math inline">\(T(n)=(k_1+1)(k_2+1)...(k_r+1)\)</span></p>
 <h2 id="变换群">2.5 变换群</h2>
 <blockquote>
 <p>定义1
 设M是一个非空集合。则由M的一些变换关于变换的乘法所作成的群，称为M的一个变换群；由M的若干个双射变换关于变换的乘法作成的群，称为M的一个双射变换群；由M的若干个非双射变换关于变换的乘法作成的群，称为M的一个非双射变换群。</p>
 </blockquote>
+<p>前面提到过，非空集合M的全体变换关于变换的乘法作成一个半群。这里先定义了一下这个变换群。</p>
 <blockquote>
 <p>定理1 设 <span class="math inline">\(M\)</span> 为任一非空集合，<span
 class="math inline">\(S(M)\)</span> 为由 <span
 class="math inline">\(M\)</span> 的全体双射变换所构成的集合。则 <span
-class="math inline">\(S(M)\)</span> 关于变换的复合法构成一个群。</p>
+class="math inline">\(S(M)\)</span> 关于变换的乘法构成一个群。</p>
 </blockquote>
+<p>因为M是一个半群，满足代数运算以及结合律，故只需证明其存在单位元（恒等变换）以及逆元（双射变换的逆变换也是双射变换）存在即可。</p>
 <blockquote>
-<p>定理2 称集合 <span class="math inline">\(M\)</span> 的双射变换群
+<p>定义2 称集合 <span class="math inline">\(M\)</span> 的双射变换群
 <span class="math inline">\(S(M)\)</span> 为 <span
 class="math inline">\(M\)</span> 上的对称群。当 <span
 class="math inline">\(|M| = n\)</span> 时，其上的对称群记为 <span
 class="math inline">\(S_n\)</span>，并称为 <span
 class="math inline">\(n\)</span> 元对称群。</p>
 </blockquote>
+<p>这是对称群的定义，不要过于纠结名称问题。前面叙述过，n元对称群 <span
+class="math inline">\(S_n\)</span> 是一个阶为 <span
+class="math inline">\(n!\)</span> 的有限群。</p>
 <blockquote>
-<p>定理3 设 <span class="math inline">\(G\)</span> 是集合 <span
+<p>定理2 设 <span class="math inline">\(G\)</span> 是集合 <span
 class="math inline">\(M\)</span> 的一个变换群，则<br />
 <span class="math inline">\(G\)</span> 是双射变换群 <span
 class="math inline">\(\iff G\)</span> 含有 <span
@@ -558,43 +570,53 @@ class="math inline">\(M\)</span> 的一个变换群，则<br />
 <span class="math inline">\(G\)</span> 是双射变换群 <span
 class="math inline">\(\iff G\)</span> 包含恒等变换。</p>
 </blockquote>
+<p>因为非双射变换不能包含任何双射变换，同时又由定理2知道非双射变换连任何的单射和满射都不能包含，说明在变换群中，双射变换群与非双射变换群是完全对立的。</p>
+<p>故如果|M|&gt;1，则T(M)必不可能构成群。</p>
+<p>最后建立抽象群同变换群之间的联系。</p>
 <blockquote>
 <p>定理3(A.Cayley) 任何群都同一个（双射）变换群同构。</p>
 </blockquote>
+<p>由此得到下面的推论。</p>
 <blockquote>
 <p>推论2 任何n阶有限群都与n元对称群<span
 class="math inline">\(S_n\)</span>的一个子群同构。</p>
 </blockquote>
 <h2 id="置换群">2.6 置换群</h2>
 <blockquote>
-<p>定义1 一个元对称群 <span class="math inline">\(S_n\)</span>
-的任一个元素，都叫做一个n元置换，简称置换。</p>
+<p>定义1 n元对称群 <span class="math inline">\(S_n\)</span>
+的任一个子群，都叫做一个n元置换群，简称置换群。</p>
 </blockquote>
+<p>置换群是一类重要的非交换群，由上节知道，每个有限抽象群都与一个置换群同构。</p>
 <blockquote>
 <p>定义2 一个置换如果把某些数码 <span
 class="math inline">\(i_1,i_2,...,i_k\)</span> 变成 <span
-class="math inline">\(i_2,i_3,...,i_k,i_1\)</span>，而其他数码（如果还有的话）都不变，则称为一个k-轮换（循环）置换，简称为轮换（循环）或轮换（循环积），并表示成<br />
+class="math inline">\(i_2,i_3,...,i_k,i_1\)</span>，但别的数码（如果还有的话）都不变，则称这个置换为一个
+k-轮换（循环）置换，简称为 k-轮换（循环）或轮换（循环），并表示成<br />
 <span class="math display">\[\sigma=(i_1 i_2 \cdots i_k)=(i_2 i_3 \cdots
-i_k i_1)=(i_3 i_4 \cdots i_1 i_2)=...\]</span></p>
+i_k i_1)=...(i_k i_l \cdots i_{k-1})\]</span></p>
 </blockquote>
+<p>把恒等置换命名为
+1-轮换，2-轮换简称为对换，无公共数码的轮换为不相连轮换。</p>
 <blockquote>
 <p>定理1 不相连轮换相乘时可以交换。</p>
 </blockquote>
 <blockquote>
 <p>定理2
-每个（非恒等）置换都可表示为不相连轮换之积，每个轮换都可表示为对换之积。因此，每个置换都可表示为对换之积。</p>
+每个（非轮换）置换都可表示为不相连轮换之积，每个轮换都可表示为对换之积。因此，每个置换都可表示为对换之积。</p>
 </blockquote>
+<p>对换分解有很多种，但是奇偶性是不变的。</p>
 <blockquote>
 <p>定理3 每个置换表示成对换的乘积时，其对换个数的奇偶性不变。</p>
 </blockquote>
 <blockquote>
 <p>定义3
-一个置换若分解成偶数个对换的乘积，则称为偶置换；否则称为奇置换。<br />
-特别地，恒等置换是偶置换。</p>
+一个置换若分解成偶数个对换的乘积，则称为偶置换；否则称为奇置换。</p>
 </blockquote>
+<p>特别，恒等置换是偶置换。</p>
+<p>关于置换的阶，有如下判别方法。</p>
 <blockquote>
-<p>定理4 <span class="math inline">\(k\)</span>-轮换的阶为 <span
-class="math inline">\(k\)</span>，不相连轮换乘积的阶为各因子的阶的最小公倍数。</p>
+<p>定理4 k-轮换的阶为
+k，不相连轮换乘积的阶为各因子的阶的最小公倍数。</p>
 </blockquote>
 <blockquote>
 <p>定理5 设有 <span class="math inline">\(n\)</span> 元置换 <span
